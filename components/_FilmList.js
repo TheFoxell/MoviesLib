@@ -1,5 +1,3 @@
-// Components/FilmList.js
-
 import React from 'react'
 import { StyleSheet, FlatList } from 'react-native'
 import FilmItem from './filmItem'
@@ -15,8 +13,7 @@ class FilmList extends React.Component {
   }
 
   _displayDetailForFilm = (idFilm) => {
-    console.log("Display film " + idFilm)
-    // On a récupéré les informations de la navigation, on peut afficher le détail du film
+    console.log('test')
     this.props.navigation.navigate('FilmDetail', {idFilm: idFilm})
   }
 

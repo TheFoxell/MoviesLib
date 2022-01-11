@@ -3,7 +3,7 @@ import { StyleSheet, Image } from 'react-native'
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import {createBottomTabNavigator} from 'react-navigation-tabs'
-import Search from "../components/search";
+import Search from "../components/Search";
 import FilmDetail from '../components/FilmDetail';
 import Favorites from "../components/Favorites";
 
@@ -20,6 +20,16 @@ const SearchStackNavigator = createStackNavigator({
     }
 })
 
+const FavoritesStackNavigator = createStackNavigator({
+    Favorites:{
+        screen:Favorites,
+        navigationOptions:{
+            title:'Favoris'
+        }
+    }
+})
+
+
 const MoviesTabNav = createBottomTabNavigator(
   {
     Search: {
@@ -33,7 +43,7 @@ const MoviesTabNav = createBottomTabNavigator(
       }
     },
     Favorites: {
-      screen: Favorites,
+      screen: FavoritesStackNavigator,
       navigationOptions: {
         tabBarIcon: () => {
           return <Image
