@@ -6,6 +6,19 @@ import {createBottomTabNavigator} from 'react-navigation-tabs'
 import Search from "../components/Search";
 import FilmDetail from '../components/FilmDetail';
 import Favorites from "../components/Favorites";
+import Home from '../components/Home'
+
+const HomeStackNavigator = createStackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      title: 'Derniers Films',
+    },
+  },
+  FilmDetail: {
+    screen: FilmDetail,
+  }
+})
 
 const SearchStackNavigator = createStackNavigator({
     Search:{
@@ -32,6 +45,16 @@ const FavoritesStackNavigator = createStackNavigator({
 
 const MoviesTabNav = createBottomTabNavigator(
   {
+    Home: {
+      screen: HomeStackNavigator,
+      navigationOptions: {
+        tabBarIcon: () => {
+          return <Image
+            source={require('../Images/ic_fiber_new.png')}
+            style={styles.icon}/>
+        }
+      }
+    },
     Search: {
       screen: SearchStackNavigator,
       navigationOptions: {
@@ -51,8 +74,9 @@ const MoviesTabNav = createBottomTabNavigator(
             style={styles.icon}/>
         }
       }
-    }
+    },
   },
+
   {
     tabBarOptions: {
       activeBackgroundColor: '#DDDDDD', // Couleur d'arrière-plan de l'onglet sélectionné
